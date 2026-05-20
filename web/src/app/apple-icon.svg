@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none" role="img" aria-label="Fedrick Region">
+  <rect width="180" height="180" rx="40" fill="#0B111D"/>
+  <defs>
+    <linearGradient id="fr-gradient" x1="24" y1="24" x2="156" y2="156" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M50 64 90 36 130 64"
+    stroke="url(#fr-gradient)"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="130" cy="48" r="7" fill="#22D3EE"/>
+  <text
+    x="90"
+    y="138"
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+    font-size="70"
+    font-weight="800"
+    letter-spacing="-2"
+  >
+    <tspan fill="#FFFFFF">F</tspan><tspan fill="url(#fr-gradient)">R</tspan>
+  </text>
+</svg>
