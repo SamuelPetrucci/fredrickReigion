@@ -4,3 +4,8 @@
 # OS / editor
 .DS_Store
 .cursor/
+
+# Secrets — never commit
+.env
+.env.local
+.env.*.local
