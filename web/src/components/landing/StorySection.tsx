@@ -15,7 +15,7 @@ function StoryMedia({
   if (trimmed) {
     return (
       <div className={`overflow-hidden rounded-2xl shadow-md ring-1 ring-black/5 ${className}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element -- admin-provided arbitrary URLs */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- configurable image URLs */}
         <img
           src={trimmed}
           alt=""
@@ -46,10 +46,10 @@ export function StorySection({ config }: { config: SiteConfig }) {
           >
             <div className="flex h-full min-h-[12rem] w-full flex-col justify-end bg-gradient-to-br from-sky-200 via-blue-400 to-indigo-700 p-6 text-white">
               <p className="text-sm font-semibold opacity-90">
-                Add a hero image URL in Admin → Story
+                Add team photos in default-site-config.ts
               </p>
               <p className="text-xs opacity-75">
-                Or upload a file — the URL is saved to your site config.
+                Set story.imageLargeUrl (and related fields) to a public image URL.
               </p>
             </div>
           </StoryMedia>

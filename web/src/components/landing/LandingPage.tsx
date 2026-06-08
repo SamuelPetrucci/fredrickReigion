@@ -1,5 +1,5 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getResolvedCountdownTargetIso } from "@/lib/site-config-store";
+import { getResolvedCountdownTargetIso } from "@/lib/site-config";
 import { CountdownBar } from "./CountdownBar";
 import { FaqSection } from "./FaqSection";
 import { FinalCtaSection } from "./FinalCtaSection";

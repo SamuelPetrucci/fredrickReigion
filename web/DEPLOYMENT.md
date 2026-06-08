@@ -1,49 +1,35 @@
-# Vercel deployment checklist (fixes 404 NOT_FOUND)
-
-## Correct project settings
+# Vercel deployment checklist
 
 Repo: **https://github.com/SamuelPetrucci/fedrickReigion**  
 Branch: **`main`**
 
 | Setting | Value |
 |---------|--------|
-| **Root Directory** | **`web`** (app lives in the `web/` folder) |
+| **Root Directory** | **`web`** |
 | **Framework Preset** | Next.js |
 | **Build Command** | `npm run build` (default) |
-| **Output Directory** | **Leave empty** (Next.js sets this automatically) |
+| **Output Directory** | **Leave empty** |
 | **Install Command** | `npm install` (default) |
 
-### Common mistake → 404 NOT_FOUND
+### 404 NOT_FOUND
 
 | Root Directory | Result |
 |----------------|--------|
-| **`web`** | Correct (matches this repo layout) |
-| **empty** | Wrong — Vercel builds repo root (no `package.json`) → **404 NOT_FOUND** |
-| **`web/web`** | Wrong — double path → **404** |
+| **`web`** | Correct |
+| **empty** | Wrong — no `package.json` at repo root |
+| **`web/web`** | Wrong |
 
-If you previously connected when the app was at the repo root only, you had to leave Root Directory empty. This repo now uses a **`web/`** folder so local disk and GitHub match — set Root Directory to **`web`**.
+After fixing settings: **Deployments → Redeploy**.
 
-## After changing settings
+### Environment variables (optional)
 
-1. Save settings.
-2. **Deployments** → **Redeploy** (use “Clear cache and redeploy” if available).
-3. Open the URL shown on the **latest successful** deployment (green check), not an old preview link.
+Only needed if you prefer env over editing `default-site-config.ts`:
 
-## Environment variables (optional for first load)
+- `NEXT_PUBLIC_VIDEO_EMBED_SRC`
+- `NEXT_PUBLIC_COUNTDOWN_TARGET`
 
-The site works without Redis (uses default content). For admin:
+No database or admin credentials required.
 
-- `ADMIN_PASSWORD`
-- `UPSTASH_REDIS_REST_URL`
-- `UPSTASH_REDIS_REST_TOKEN`
+### Verify build
 
-Missing Redis does **not** cause 404.
-
-## Verify build succeeded
-
-Open deployment → **Building** logs. You should see:
-
-- `Compiled successfully`
-- Route `/` listed
-
-If the build failed, fix logs first — a failed deploy often shows platform **NOT_FOUND**.
+Build log should show `Compiled successfully` and route `/`.

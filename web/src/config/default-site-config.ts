@@ -36,7 +36,7 @@ export const defaultSiteConfig: SiteConfig = {
     socialSubtitle: "Fort Laureate producers · growing roster",
     emptyVideoTitle: "Video embed ready when you are",
     emptyVideoHint:
-      "Add a video URL in Admin → Site → Video embed, or set NEXT_PUBLIC_VIDEO_EMBED_SRC on Vercel.",
+      "Add a video embed URL in default-site-config.ts or set NEXT_PUBLIC_VIDEO_EMBED_SRC on Vercel.",
   },
   stats: {
     eyebrow: "Real results from real people",

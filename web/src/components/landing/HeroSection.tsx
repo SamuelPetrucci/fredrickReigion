@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getResolvedVideoEmbedSrc } from "@/lib/site-config-store";
+import { getResolvedVideoEmbedSrc } from "@/lib/site-config";
+import { BrandMark } from "./BrandMark";
 import { TextGradient } from "./TextGradient";
 
 export function HeroSection({ config }: { config: SiteConfig }) {
@@ -21,13 +22,12 @@ export function HeroSection({ config }: { config: SiteConfig }) {
       />
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-14 lg:py-20">
         <div>
-          <div className="mb-6 max-w-xl">
-            <p className="text-base font-semibold tracking-tight text-[#0b111d] sm:text-lg">
-              {meta.brand}
-              <span className="font-normal text-zinc-300"> · </span>
-              {meta.company}
-            </p>
-            <p className="mt-1 text-sm leading-snug text-zinc-500">{meta.division}</p>
+          <div className="mb-8 max-w-xl">
+            <BrandMark
+              meta={meta}
+              badgeRecruiting={hero.badgeRecruiting}
+              badgeOffice={hero.badgeOffice}
+            />
           </div>
 
           <h1 className="max-w-xl text-[1.65rem] font-extrabold leading-[1.15] tracking-tight text-[#0b111d] sm:text-4xl sm:leading-[1.12] lg:text-[2.75rem] lg:leading-[1.08]">

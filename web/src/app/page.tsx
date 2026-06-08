@@ -1,10 +1,7 @@
 import { LandingPage } from "@/components/landing/LandingPage";
-import { getSiteConfig } from "@/lib/site-config-store";
+import { getSiteConfig } from "@/lib/site-config";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
-export default async function Home() {
-  const config = await getSiteConfig();
+export default function Home() {
+  const config = getSiteConfig();
   return <LandingPage config={config} />;
 }
