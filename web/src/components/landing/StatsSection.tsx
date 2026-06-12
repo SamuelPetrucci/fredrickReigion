@@ -9,11 +9,11 @@ export function StatsSection({ config }: { config: SiteConfig }) {
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200/80 transition-opacity duration-500">
           {stats.eyebrow}
         </p>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-8">
           {stats.items.map((s) => (
             <div
               key={s.label}
-              className="text-center transition-transform duration-500 ease-out hover:translate-y-[-2px] sm:text-left"
+              className="text-center transition-transform duration-500 ease-out hover:translate-y-[-2px]"
             >
               <div className="text-3xl font-extrabold tabular-nums sm:text-4xl">
                 {s.gradient ? (

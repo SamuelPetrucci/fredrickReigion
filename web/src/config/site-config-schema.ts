@@ -54,9 +54,6 @@ export type SiteConfig = {
     features: [WhyFeature, WhyFeature, WhyFeature, WhyFeature, WhyFeature, WhyFeature];
   };
   story: {
-    imageLargeUrl: string;
-    imageSmallLeftUrl: string;
-    imageSmallRightUrl: string;
     headlineBefore: string;
     headlineGradient: string;
     paragraph1: string;

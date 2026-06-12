@@ -94,9 +94,6 @@ export const defaultSiteConfig: SiteConfig = {
     ],
   },
   story: {
-    imageLargeUrl: "",
-    imageSmallLeftUrl: "",
-    imageSmallRightUrl: "",
     headlineBefore: "This is not just a job. ",
     headlineGradient: "It is a vehicle for your goals.",
     paragraph1:
@@ -192,7 +189,6 @@ export const defaultSiteConfig: SiteConfig = {
     tagline: "Fort Lauderdale recruiting",
     youtubeUrl: "#",
     instagramUrl: "#",
-    copyright:
-      "__BRAND__. All rights reserved. __COMPANY__ — update legal entity before launch.",
+    copyright: "All rights reserved.",
   },
 };

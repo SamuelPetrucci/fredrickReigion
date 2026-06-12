@@ -18,22 +18,8 @@ body {
   color: var(--foreground);
 }
 
-.team-carousel-track {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-.team-carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
-  }
-
-  .team-carousel-track {
     scroll-behavior: auto;
   }
 }

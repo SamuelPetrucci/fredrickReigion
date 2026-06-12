@@ -13,7 +13,7 @@ Site: [http://localhost:3000](http://localhost:3000)
 
 ## Edit content
 
-All copy lives in **[`src/config/default-site-config.ts`](./src/config/default-site-config.ts)**. Change text, stats, team, FAQ, and image URLs there, then redeploy.
+All copy lives in **[`src/config/default-site-config.ts`](./src/config/default-site-config.ts)**. Change text, stats, team, and FAQ there, then redeploy.
 
 ## Deploy on Vercel
 

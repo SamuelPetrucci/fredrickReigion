@@ -6,6 +6,7 @@ import type { TeamMember } from "@/config/site-config-schema";
 import { TeamMemberCard } from "./TeamMemberCard";
 
 const AUTO_ADVANCE_MS = 8000;
+const SWIPE_THRESHOLD_PX = 48;
 
 type TeamCarouselProps = {
   members: TeamMember[];
@@ -18,69 +19,49 @@ export function TeamCarousel({
   scheduleUrl,
   badgeLabel,
 }: TeamCarouselProps) {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const pausedRef = useRef(false);
   const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const scrollToIndex = useCallback((index: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const slide = track.children[index] as HTMLElement | undefined;
-    if (!slide) return;
-    slide.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-    setActiveIndex(index);
-  }, []);
-
-  const pauseAutoAdvance = useCallback(() => {
-    pausedRef.current = true;
-    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
-    pauseTimeoutRef.current = setTimeout(() => {
-      pausedRef.current = false;
-    }, AUTO_ADVANCE_MS * 2);
-  }, []);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
 
   const goTo = useCallback(
     (index: number) => {
-      pauseAutoAdvance();
       const next =
         ((index % members.length) + members.length) % members.length;
-      scrollToIndex(next);
+      if (next === activeIndex) return;
+
+      setIsAnimating(true);
+      setActiveIndex(next);
+
+      pausedRef.current = true;
+      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+      pauseTimeoutRef.current = setTimeout(() => {
+        pausedRef.current = false;
+      }, AUTO_ADVANCE_MS * 2);
     },
-    [members.length, pauseAutoAdvance, scrollToIndex]
+    [activeIndex, members.length]
   );
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const onScroll = () => {
-      const { scrollLeft, offsetWidth } = track;
-      if (offsetWidth === 0) return;
-      const index = Math.round(scrollLeft / offsetWidth);
-      setActiveIndex(Math.min(Math.max(index, 0), members.length - 1));
-    };
-
-    track.addEventListener("scroll", onScroll, { passive: true });
-    return () => track.removeEventListener("scroll", onScroll);
-  }, [members.length]);
+    if (!isAnimating) return;
+    const id = window.setTimeout(() => setIsAnimating(false), 500);
+    return () => window.clearTimeout(id);
+  }, [isAnimating, activeIndex]);
 
   useEffect(() => {
     const id = setInterval(() => {
       if (pausedRef.current) return;
       setActiveIndex((current) => {
         const next = (current + 1) % members.length;
-        scrollToIndex(next);
+        setIsAnimating(true);
         return next;
       });
     }, AUTO_ADVANCE_MS);
 
     return () => clearInterval(id);
-  }, [members.length, scrollToIndex]);
+  }, [members.length]);
 
   useEffect(() => {
     return () => {
@@ -97,37 +78,70 @@ export function TeamCarousel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeIndex, goTo]);
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    pausedRef.current = true;
+    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    pauseTimeoutRef.current = setTimeout(() => {
+      pausedRef.current = false;
+    }, AUTO_ADVANCE_MS * 2);
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const deltaX = touchStartX.current - e.changedTouches[0].clientX;
+    const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+
+    if (
+      Math.abs(deltaX) > SWIPE_THRESHOLD_PX &&
+      Math.abs(deltaX) > Math.abs(deltaY)
+    ) {
+      if (deltaX > 0) goTo(activeIndex + 1);
+      else goTo(activeIndex - 1);
+    }
+  };
+
   return (
     <div
       className="relative mx-auto max-w-3xl"
-      onMouseEnter={pauseAutoAdvance}
-      onTouchStart={pauseAutoAdvance}
+      onMouseEnter={() => {
+        pausedRef.current = true;
+      }}
+      onMouseLeave={() => {
+        pausedRef.current = false;
+      }}
     >
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-16 bg-gradient-to-r from-white to-transparent sm:block" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 bg-gradient-to-l from-white to-transparent sm:block" />
-
       <div
-        ref={trackRef}
-        className="team-carousel-track flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
+        className="grid overflow-hidden touch-pan-y"
         aria-label="Team testimonials"
         role="region"
+        aria-live="polite"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
-        {members.map((member, index) => (
-          <div
-            key={member.name}
-            className="w-full shrink-0 snap-center snap-always px-1 sm:px-2"
-            aria-hidden={index !== activeIndex}
-            aria-roledescription="slide"
-            aria-label={`${index + 1} of ${members.length}`}
-          >
-            <TeamMemberCard
-              member={member}
-              scheduleUrl={scheduleUrl}
-              badgeLabel={badgeLabel}
-              featured
-            />
-          </div>
-        ))}
+        {members.map((member, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <div
+              key={member.name}
+              className={`col-start-1 row-start-1 transition-all duration-500 ease-in-out ${
+                isActive
+                  ? "z-10 translate-x-0 opacity-100"
+                  : "z-0 translate-x-6 opacity-0 pointer-events-none"
+              }`}
+              aria-hidden={!isActive}
+              aria-roledescription="slide"
+              aria-label={`${index + 1} of ${members.length}: ${member.name}`}
+            >
+              <TeamMemberCard
+                member={member}
+                scheduleUrl={scheduleUrl}
+                badgeLabel={badgeLabel}
+                featured
+              />
+            </div>
+          );
+        })}
       </div>
 
       <div className="mt-8 flex items-center justify-center gap-4">
@@ -140,7 +154,11 @@ export function TeamCarousel({
           <ChevronLeft className="h-5 w-5" aria-hidden />
         </button>
 
-        <div className="flex items-center gap-2" role="tablist" aria-label="Team slides">
+        <div
+          className="flex items-center gap-2"
+          role="tablist"
+          aria-label="Team slides"
+        >
           {members.map((member, index) => (
             <button
               key={member.name}
