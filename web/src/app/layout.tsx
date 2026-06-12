@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fedrick Region | MedaHealth — Fort Laureate",
+  title: "Fedrick Region | MedaHealth — Fort Lauderdale",
   description:
-    "Recruiting landing page for the Fedrick Region team at MedaHealth — Fort Laureate office. Health and life insurance sales opportunity.",
+    "Recruiting landing page for the Fedrick Region team at MedaHealth — Fort Lauderdale office. Health and life insurance sales opportunity.",
 };
 
 export const viewport: Viewport = {

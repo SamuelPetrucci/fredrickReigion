@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { SiteConfig } from "@/config/site-config-schema";
 import { getLucideIcon } from "@/lib/lucide-map";
+import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function WhySection({ config }: { config: SiteConfig }) {
@@ -39,13 +39,9 @@ export function WhySection({ config }: { config: SiteConfig }) {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <Link
-            href={nav.interviewHref}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0b111d] px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#141c2e] hover:shadow-xl"
-          >
+          <ScheduleCtaButton href={nav.interviewHref} size="large">
             {cta.label}
-            <span aria-hidden>→</span>
-          </Link>
+          </ScheduleCtaButton>
         </div>
       </div>
     </section>

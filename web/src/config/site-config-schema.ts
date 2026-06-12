@@ -6,7 +6,7 @@ export type TrustItem = { icon: string; text: string };
 
 export type WhyFeature = { icon: string; title: string; body: string };
 
-export type TeamMember = { name: string; tagline: string; invite: string };
+export type TeamMember = { name: string; tagline: string; quote: string };
 
 export type SiteConfig = {
   version: 1;
@@ -23,12 +23,13 @@ export type SiteConfig = {
     interviewSectionId: string;
   };
   cta: { label: string };
-  countdown: {
-    overviewLabel: string;
-    /** ISO 8601 or empty — client uses env then 7-day placeholder */
-    targetIso: string;
+  schedule: {
+    /** Google Calendar appointment booking URL */
+    url: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
   };
-  videoEmbedSrc: string;
   hero: {
     badgeRecruiting: string;
     badgeOffice: string;
@@ -36,16 +37,14 @@ export type SiteConfig = {
     headlineGradient: string;
     headlineAfter: string;
     subhead: string;
-    videoEyebrow: string;
-    avatarInitials: [string, string, string, string, string, string];
+    teamCardsEyebrow: string;
+    avatarInitials: string[];
     socialTitle: string;
     socialSubtitle: string;
-    emptyVideoTitle: string;
-    emptyVideoHint: string;
   };
   stats: {
     eyebrow: string;
-    items: [StatItem, StatItem, StatItem, StatItem];
+    items: StatItem[];
   };
   trust: { items: [TrustItem, TrustItem, TrustItem, TrustItem] };
   why: {
@@ -70,7 +69,6 @@ export type SiteConfig = {
     titleGradient: string;
     subtitle: string;
     cardBadgeLabel: string;
-    cardButtonLabel: string;
     members: TeamMember[];
   };
   faq: {

@@ -1,6 +1,6 @@
 # Fedrick Region
 
-Static recruiting landing page for **Fedrick Region** / **MedaHealth** (Fort Laureate office). Next.js App Router, blue gradient theme.
+Static recruiting landing page for **Fedrick Region** / **MedaHealth** (Fort Lauderdale office). Next.js App Router, blue gradient theme.
 
 ## Quick start
 
@@ -13,12 +13,7 @@ Site: [http://localhost:3000](http://localhost:3000)
 
 ## Edit content
 
-All copy lives in **[`src/config/default-site-config.ts`](./src/config/default-site-config.ts)**. Change text, stats, team, FAQ, image URLs, and video embed there, then redeploy.
-
-Optional env overrides (see [`.env.example`](./.env.example)):
-
-- `NEXT_PUBLIC_VIDEO_EMBED_SRC`
-- `NEXT_PUBLIC_COUNTDOWN_TARGET`
+All copy lives in **[`src/config/default-site-config.ts`](./src/config/default-site-config.ts)**. Change text, stats, team, FAQ, and image URLs there, then redeploy.
 
 ## Deploy on Vercel
 

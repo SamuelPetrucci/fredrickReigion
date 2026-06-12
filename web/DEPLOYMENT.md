@@ -21,14 +21,7 @@ Branch: **`main`**
 
 After fixing settings: **Deployments → Redeploy**.
 
-### Environment variables (optional)
-
-Only needed if you prefer env over editing `default-site-config.ts`:
-
-- `NEXT_PUBLIC_VIDEO_EMBED_SRC`
-- `NEXT_PUBLIC_COUNTDOWN_TARGET`
-
-No database or admin credentials required.
+No environment variables, database, or admin credentials required. All content is in `src/config/default-site-config.ts`.
 
 ### Verify build
 

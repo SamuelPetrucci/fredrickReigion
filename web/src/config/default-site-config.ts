@@ -1,50 +1,50 @@
 import type { SiteConfig } from "./site-config-schema";
 
+const SCHEDULE_URL = "https://calendar.app.google/2VmyRRuvzv5a1oM46";
+
 export const defaultSiteConfig: SiteConfig = {
   version: 1,
   meta: {
     brand: "Fedrick Region",
     company: "MedaHealth",
-    division: "Health and life insurance — Fort Laureate office",
+    division: "Health and life insurance — Fort Lauderdale office",
   },
   nav: {
     interviewLabel: "Schedule",
     aboutLabel: "About",
-    interviewHref: "#interview",
+    interviewHref: "#schedule",
     aboutAnchorId: "about",
-    interviewSectionId: "interview",
+    interviewSectionId: "schedule",
   },
   cta: {
     label: "SCHEDULE YOUR INTERVIEW",
   },
-  countdown: {
-    overviewLabel: "LIVE Overview — schedule a time that works for you",
-    targetIso: "",
+  schedule: {
+    url: SCHEDULE_URL,
+    eyebrow: "Pick a time",
+    title: "Schedule your interview",
+    subtitle:
+      "Choose a slot that works for you. No pressure — just a conversation with the Fort Lauderdale team.",
   },
-  videoEmbedSrc: "",
   hero: {
     badgeRecruiting: "Recruiting",
-    badgeOffice: "Fort Laureate office",
+    badgeOffice: "Fort Lauderdale office",
     headlineBefore: "From stuck and capped to ",
     headlineGradient: "six-figure",
     headlineAfter: " income in health & life sales — with __BRAND__.",
     subhead:
-      "Join MedaHealth at the Fort Laureate office. See the system, hands-on training, and warm-lead support built to remove the barrier between you and the income you are working for — then schedule your interview to learn what is next.",
-    videoEyebrow: "Watch the overview",
-    avatarInitials: ["CR", "TB", "AW", "JM", "SP", "JH"],
-    socialTitle: "Meet your future teammates",
-    socialSubtitle: "Fort Laureate producers · growing roster",
-    emptyVideoTitle: "Video embed ready when you are",
-    emptyVideoHint:
-      "Add a video embed URL in default-site-config.ts or set NEXT_PUBLIC_VIDEO_EMBED_SRC on Vercel.",
+      "Join MedaHealth at the Fort Lauderdale office. Real producers who came from restaurants, desk jobs, and part-time work — now building uncapped income and residual wealth.",
+    teamCardsEyebrow: "Meet your future team",
+    avatarInitials: ["JM", "CC", "DL", "AW", "TB"],
+    socialTitle: "Real stories from real producers",
+    socialSubtitle: "Fort Lauderdale · MedaHealth",
   },
   stats: {
     eyebrow: "Real results from real people",
     items: [
-      { value: "$180,000", label: "Highest monthly earner", gradient: true },
-      { value: "$2,000,000+", label: "Top 4-year earner", gradient: true },
-      { value: "15,000+", label: "Active agents", gradient: false },
-      { value: "$90,000", label: "Avg top earner / mo", gradient: true },
+      { value: "$92,897.89", label: "Highest monthly earner", gradient: true },
+      { value: "400+", label: "Active agents", gradient: false },
+      { value: "$30,000", label: "Average top earner / mo", gradient: true },
     ],
   },
   trust: {
@@ -74,7 +74,7 @@ export const defaultSiteConfig: SiteConfig = {
       {
         icon: "MapPin",
         title: "In-person, hands-on training",
-        body: "Fort Laureate office culture includes live training and side-by-side work so skills compound faster.",
+        body: "Fort Lauderdale office culture includes live training and side-by-side work so skills compound faster.",
       },
       {
         icon: "DollarSign",
@@ -100,7 +100,7 @@ export const defaultSiteConfig: SiteConfig = {
     headlineBefore: "This is not just a job. ",
     headlineGradient: "It is a vehicle for your goals.",
     paragraph1:
-      "MedaHealth and the Fedrick Region team focus on clear expectations, licensing support, and a culture where producers help each other win. If you want a structured path in Fort Laureate — not hype — start by scheduling a conversation with the team.",
+      "MedaHealth and the Fedrick Region team focus on clear expectations, licensing support, and a culture where producers help each other win. If you want a structured path in Fort Lauderdale — not hype — start by scheduling a conversation with the team.",
     paragraph2:
       "Bring your work ethic. We bring training, leadership, and a roadmap so you can evaluate fit with full transparency.",
     quote:
@@ -111,45 +111,38 @@ export const defaultSiteConfig: SiteConfig = {
     titleBefore: "Don't take our word for it — ",
     titleGradient: "meet your future team",
     subtitle:
-      "Real people building in Fort Laureate. Replace invite lines with approved testimonials when you have them.",
-    cardBadgeLabel: "Schedule",
-    cardButtonLabel: "Watch their story",
+      "They came from restaurants, bartending, and desk jobs — and built careers with freedom, residual income, and uncapped earnings.",
+    cardBadgeLabel: "Producer",
     members: [
       {
-        name: "Cory Cintron",
-        tagline: "Producer",
-        invite:
-          "Meet Cory when you schedule — hear how he runs appointments day to day.",
+        name: "Jason Macaroni",
+        tagline: "Former server & desk job · $20/hr",
+        quote:
+          "Before this I was serving tables, washing dishes, and working a desk job for $20/hr. We expect to get out of college and start making $100k/year but that is not the case — this job gives you the opportunity to make far more than that within your first 12 months, while also having the freedom to run your business the way you want.",
       },
       {
-        name: "Tom Buettner",
-        tagline: "Producer",
-        invite:
-          "Learn how Tom balances training new partners with personal production once you are on the calendar.",
+        name: "Cory Cintron",
+        tagline: "$250k+ first year in insurance",
+        quote:
+          "I came from working two part-time jobs making $12–15 an hour, earning around $40k a year at best. Then I got into insurance and made over $250k+ my first year while being able to create my own schedule.",
+      },
+      {
+        name: "Dylan Loos",
+        tagline: "Restaurant · 3x previous income",
+        quote:
+          "I worked part time at a restaurant making minimum wage plus tips. Now I can create my own schedule and build residual income while making 3x the money I was making while serving.",
       },
       {
         name: "Austin Woodruff",
-        tagline: "Producer",
-        invite:
-          "Austin focuses on systems and follow-up so nothing falls through the cracks.",
+        tagline: "Former bartender · 70 hrs/week",
+        quote:
+          "I came from working open to close double shifts as a bartender (70 hours/week). The freedom and residual I have built within a year is unbeatable in any other industry. Last year, just the commissions and bonuses alone made me more than bartending all those hours weekly.",
       },
       {
-        name: "Jason Macaroni",
-        tagline: "Producer",
-        invite:
-          "Jason brings energy and accountability to the Fort Laureate floor.",
-      },
-      {
-        name: "Stephen Piazzola",
-        tagline: "Producer",
-        invite:
-          "Stephen helps newer agents shorten the learning curve with clear feedback.",
-      },
-      {
-        name: "Jack Hanzal",
-        tagline: "Producer",
-        invite:
-          "Jack is big on culture — teamwork on tough days and celebrating wins.",
+        name: "Tom Buettner",
+        tagline: "Part-time bartender → uncapped career",
+        quote:
+          "I started working as a part-time bartender making just enough to pay for college. I knew I wanted more for my future. Joining MedaHealth gave me the opportunity to build an uncapped career, develop valuable skills, and surround myself with ambitious people who inspire me to grow every day.",
       },
     ],
   },
@@ -182,7 +175,7 @@ export const defaultSiteConfig: SiteConfig = {
       {
         question: "Where are we located?",
         answer:
-          "We are recruiting for the Fort Laureate office with MedaHealth. Location, hybrid options, and field expectations are confirmed when you connect with the team.",
+          "We are recruiting for the Fort Lauderdale office with MedaHealth. Location, hybrid options, and field expectations are confirmed when you connect with the team.",
       },
     ],
   },
@@ -192,11 +185,11 @@ export const defaultSiteConfig: SiteConfig = {
     subhead:
       "The worst-case scenario? You spend an hour and decide it is not a fit. The best-case scenario? You find a team and platform that match your goals.",
     disclaimer:
-      "Free to attend. No obligation. Pick a time that works for you and confirm details with the Fort Laureate office.",
+      "Free to attend. No obligation. Pick a time that works for you.",
   },
   footer: {
     logoInitials: "FR",
-    tagline: "Fort Laureate recruiting",
+    tagline: "Fort Lauderdale recruiting",
     youtubeUrl: "#",
     instagramUrl: "#",
     copyright:

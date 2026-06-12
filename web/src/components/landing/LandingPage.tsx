@@ -1,8 +1,7 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getResolvedCountdownTargetIso } from "@/lib/site-config";
-import { CountdownBar } from "./CountdownBar";
 import { FaqSection } from "./FaqSection";
 import { FinalCtaSection } from "./FinalCtaSection";
+import { ScheduleSection } from "./ScheduleSection";
 import { HeroSection } from "./HeroSection";
 import { Reveal } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
@@ -13,8 +12,6 @@ import { TrustBar } from "./TrustBar";
 import { WhySection } from "./WhySection";
 
 export function LandingPage({ config }: { config: SiteConfig }) {
-  const targetIso = getResolvedCountdownTargetIso(config);
-
   return (
     <>
       <main>
@@ -22,10 +19,7 @@ export function LandingPage({ config }: { config: SiteConfig }) {
           <HeroSection config={config} />
         </Reveal>
         <Reveal delayMs={40}>
-          <CountdownBar
-            overviewLabel={config.countdown.overviewLabel}
-            targetIso={targetIso}
-          />
+          <TeamSection config={config} />
         </Reveal>
         <Reveal delayMs={80}>
           <StatsSection config={config} />
@@ -40,13 +34,13 @@ export function LandingPage({ config }: { config: SiteConfig }) {
           <StorySection config={config} />
         </Reveal>
         <Reveal delayMs={160}>
-          <TeamSection config={config} />
-        </Reveal>
-        <Reveal delayMs={180}>
           <FaqSection config={config} />
         </Reveal>
+        <Reveal delayMs={180}>
+          <ScheduleSection config={config} />
+        </Reveal>
         <Reveal delayMs={200}>
-          <FinalCtaSection config={config} targetIso={targetIso} />
+          <FinalCtaSection config={config} />
         </Reveal>
         <SiteFooter config={config} />
       </main>
