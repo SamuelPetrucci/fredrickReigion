@@ -1,24 +1,31 @@
 import type { SiteConfig } from "@/config/site-config-schema";
+import { getScheduleUrl } from "@/lib/site-config";
 import { BrandMark } from "./BrandMark";
+import { PhotoCarousel } from "./PhotoCarousel";
 import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function HeroSection({ config }: { config: SiteConfig }) {
-  const { hero, meta, cta, nav } = config;
+  const { hero, meta, cta, nav, gallery } = config;
+  const scheduleUrl = getScheduleUrl(config);
   const headlineAfter = hero.headlineAfter
     .replaceAll("__BRAND__", meta.brand)
     .replaceAll("__COMPANY__", meta.company);
 
   return (
     <section
-      className="relative overflow-hidden border-b border-zinc-100 bg-white"
+      className="relative overflow-hidden border-b border-amber-100/80 bg-white"
       id={nav.aboutAnchorId}
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(56,189,248,0.12),transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(212,175,55,0.28),transparent)]"
         aria-hidden
       />
-      <div className="relative mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:py-20">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-80"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:py-20">
         <div className="mb-8">
           <BrandMark
             meta={meta}
@@ -39,8 +46,14 @@ export function HeroSection({ config }: { config: SiteConfig }) {
           {hero.subhead}
         </p>
 
+        {gallery.images.length > 0 && (
+          <div className="mt-8">
+            <PhotoCarousel images={gallery.images} embedded />
+          </div>
+        )}
+
         <div className="mt-9">
-          <ScheduleCtaButton href={nav.interviewHref} size="large" fullWidth>
+          <ScheduleCtaButton href={scheduleUrl} size="large" fullWidth>
             {cta.label}
           </ScheduleCtaButton>
         </div>

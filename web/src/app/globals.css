@@ -4,7 +4,12 @@
   --background: #ffffff;
   --foreground: #0b111d;
   --navy: #0b111d;
-  --gradient-blue: linear-gradient(120deg, #22d3ee, #2563eb, #1d4ed8);
+  --gold-light: #ffe566;
+  --gold: #d4af37;
+  --gold-mid: #c9a227;
+  --gold-dark: #7a5c18;
+  --gradient-gold: linear-gradient(120deg, #ffe566 0%, #e8c547 35%, #d4af37 65%, #9a7b2f 100%);
+  --gradient-gold-button: linear-gradient(135deg, #ffe566 0%, #e8c547 38%, #d4af37 100%);
 }
 
 @theme inline {
@@ -16,6 +21,23 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+.text-gradient-gold {
+  background: var(--gradient-gold);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(154, 123, 47, 0.15));
+}
+
+.bg-gradient-gold {
+  background: var(--gradient-gold);
+}
+
+.bg-gradient-gold-button {
+  background: var(--gradient-gold-button);
+  color: #0b111d;
 }
 
 @media (prefers-reduced-motion: reduce) {

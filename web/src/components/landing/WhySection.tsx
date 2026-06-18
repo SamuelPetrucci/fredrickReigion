@@ -1,11 +1,12 @@
 import type { SiteConfig } from "@/config/site-config-schema";
+import { getScheduleUrl } from "@/lib/site-config";
 import { getLucideIcon } from "@/lib/lucide-map";
 import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function WhySection({ config }: { config: SiteConfig }) {
-  const { why, cta, nav } = config;
-  return (
+  const { why, cta } = config;
+  const scheduleUrl = getScheduleUrl(config);  return (
     <section className="bg-white px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-[#0b111d] sm:text-4xl">
@@ -24,7 +25,7 @@ export function WhySection({ config }: { config: SiteConfig }) {
             return (
               <div
                 key={title}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-sky-200/80 hover:shadow-lg"
+                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-amber-200/80 hover:shadow-lg"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700">
                   <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
@@ -39,7 +40,7 @@ export function WhySection({ config }: { config: SiteConfig }) {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <ScheduleCtaButton href={nav.interviewHref} size="large">
+          <ScheduleCtaButton href={scheduleUrl} size="large">
             {cta.label}
           </ScheduleCtaButton>
         </div>

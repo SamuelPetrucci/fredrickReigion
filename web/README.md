@@ -1,6 +1,6 @@
 # Fedrick Region
 
-Static recruiting landing page for **Fedrick Region** / **MedaHealth** (Fort Lauderdale office). Next.js App Router, blue gradient theme.
+Static recruiting landing page for **Fedrick Region** / **MedaHealth** (Fort Lauderdale office). Next.js App Router, black, white, and gold theme.
 
 ## Quick start
 

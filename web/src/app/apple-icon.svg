@@ -2,9 +2,9 @@
   <rect width="180" height="180" rx="40" fill="#0B111D"/>
   <defs>
     <linearGradient id="fr-gradient" x1="24" y1="24" x2="156" y2="156" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#22D3EE"/>
-      <stop offset="0.55" stop-color="#2563EB"/>
-      <stop offset="1" stop-color="#1D4ED8"/>
+      <stop stop-color="#F5E27A"/>
+      <stop offset="0.55" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#9A7B2F"/>
     </linearGradient>
   </defs>
   <path
@@ -14,7 +14,7 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   />
-  <circle cx="130" cy="48" r="7" fill="#22D3EE"/>
+  <circle cx="130" cy="48" r="7" fill="#D4AF37"/>
   <text
     x="90"
     y="138"

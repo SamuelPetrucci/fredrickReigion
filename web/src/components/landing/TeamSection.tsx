@@ -1,10 +1,12 @@
 import type { SiteConfig } from "@/config/site-config-schema";
+import { getScheduleUrl } from "@/lib/site-config";
 import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TeamCarousel } from "./TeamCarousel";
 import { TextGradient } from "./TextGradient";
 
 export function TeamSection({ config }: { config: SiteConfig }) {
-  const { team, schedule } = config;
+  const { team } = config;
+  const scheduleUrl = getScheduleUrl(config);
   return (
     <section
       id="team"
@@ -24,14 +26,14 @@ export function TeamSection({ config }: { config: SiteConfig }) {
         <div className="mt-14">
           <TeamCarousel
             members={team.members}
-            scheduleUrl={schedule.url}
+            scheduleUrl={scheduleUrl}
             badgeLabel={team.cardBadgeLabel}
           />
         </div>
 
         <div className="mt-10 flex justify-center">
-          <ScheduleCtaButton href={schedule.url} external size="large">
-            Schedule your interview
+          <ScheduleCtaButton href={scheduleUrl} size="large">
+            {config.cta.label}
           </ScheduleCtaButton>
         </div>
       </div>

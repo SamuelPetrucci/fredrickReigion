@@ -23,9 +23,9 @@ export function GradientStars({ className = "" }: { className?: string }) {
           >
             <defs>
               <linearGradient id={gid} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#22d3ee" />
-                <stop offset="50%" stopColor="#2563eb" />
-                <stop offset="100%" stopColor="#1d4ed8" />
+                <stop offset="0%" stopColor="#F5E27A" />
+                <stop offset="50%" stopColor="#D4AF37" />
+                <stop offset="100%" stopColor="#9A7B2F" />
               </linearGradient>
             </defs>
             <path

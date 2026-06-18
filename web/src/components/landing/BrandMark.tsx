@@ -34,9 +34,9 @@ function LogoIcon({
           y2="28"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#22D3EE" />
-          <stop offset="0.55" stopColor="#2563EB" />
-          <stop offset="1" stopColor="#1D4ED8" />
+          <stop stopColor="#F5E27A" />
+          <stop offset="0.55" stopColor="#D4AF37" />
+          <stop offset="1" stopColor="#9A7B2F" />
         </linearGradient>
       </defs>
       <path
@@ -46,7 +46,7 @@ function LogoIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="23" cy="8.5" r="1.35" fill="#22D3EE" />
+      <circle cx="23" cy="8.5" r="1.35" fill="#D4AF37" />
       <text
         x="16"
         y="24.5"
@@ -74,19 +74,19 @@ export function BrandMark({
 
   return (
     <div
-      className={`group relative inline-flex max-w-full items-center gap-3.5 rounded-2xl border border-zinc-200/90 bg-white/80 px-3 py-2.5 shadow-sm shadow-sky-500/5 ring-1 ring-sky-100/60 backdrop-blur-sm transition-all duration-300 hover:border-sky-200/80 hover:shadow-md hover:shadow-sky-500/10 sm:gap-4 sm:px-4 sm:py-3 ${
+      className={`group relative inline-flex max-w-full items-center gap-3.5 rounded-2xl border border-zinc-200/90 bg-white/80 px-3 py-2.5 shadow-sm shadow-amber-900/5 ring-1 ring-amber-100/60 backdrop-blur-sm transition-all duration-300 hover:border-amber-200/80 hover:shadow-md hover:shadow-amber-900/10 sm:gap-4 sm:px-4 sm:py-3 ${
         compact ? "gap-3 px-3 py-2" : ""
       }`}
     >
       {/* Gradient halo behind logo */}
       <div
-        className="pointer-events-none absolute -left-1 top-1/2 h-14 w-14 -translate-y-1/2 rounded-2xl bg-[radial-gradient(circle,rgba(34,211,238,0.25),transparent_70%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute -left-1 top-1/2 h-14 w-14 -translate-y-1/2 rounded-2xl bg-[radial-gradient(circle,rgba(212,175,55,0.22),transparent_70%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100"
         aria-hidden
       />
 
       <div className="relative shrink-0">
         <div
-          className={`rounded-xl bg-gradient-to-br from-cyan-400 via-blue-500 to-blue-700 p-[2px] shadow-md shadow-blue-900/20 ${
+          className={`rounded-xl bg-gradient-to-br from-[#F5E27A] via-[#D4AF37] to-[#9A7B2F] p-[2px] shadow-md shadow-amber-900/20 ${
             compact ? "rounded-lg" : ""
           }`}
         >
@@ -103,10 +103,10 @@ export function BrandMark({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           {(badgeRecruiting || badgeOffice) && (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200/80 bg-sky-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-sky-800">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/80 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-900">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-sky-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-500" />
               </span>
               {badgeRecruiting ?? "Recruiting"}
             </span>

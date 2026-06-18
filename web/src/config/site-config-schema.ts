@@ -42,6 +42,10 @@ export type SiteConfig = {
     socialTitle: string;
     socialSubtitle: string;
   };
+  gallery: {
+    /** Public paths, e.g. `/assets/DSC09828.jpg` */
+    images: string[];
+  };
   stats: {
     eyebrow: string;
     items: StatItem[];

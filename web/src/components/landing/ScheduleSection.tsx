@@ -1,9 +1,11 @@
 import type { SiteConfig } from "@/config/site-config-schema";
+import { getScheduleUrl } from "@/lib/site-config";
 import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function ScheduleSection({ config }: { config: SiteConfig }) {
   const { schedule, cta } = config;
+  const scheduleUrl = getScheduleUrl(config);
 
   return (
     <section
@@ -11,7 +13,7 @@ export function ScheduleSection({ config }: { config: SiteConfig }) {
       id={config.nav.interviewSectionId}
     >
       <div className="mx-auto max-w-4xl">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-sky-700">
+        <p className="text-center text-xs font-semibold uppercase tracking-widest text-amber-700">
           {schedule.eyebrow}
         </p>
         <h2 className="mt-3 text-center text-3xl font-extrabold tracking-tight text-[#0b111d] sm:text-4xl">
@@ -24,7 +26,7 @@ export function ScheduleSection({ config }: { config: SiteConfig }) {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <ScheduleCtaButton href={schedule.url} external size="large">
+          <ScheduleCtaButton href={scheduleUrl} size="large">
             {cta.label}
           </ScheduleCtaButton>
         </div>

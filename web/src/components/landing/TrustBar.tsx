@@ -10,10 +10,10 @@ export function TrustBar({ config }: { config: SiteConfig }) {
           return (
             <div
               key={item.text}
-              className="group flex items-center gap-2 text-sm font-medium text-zinc-700 transition-colors duration-300 hover:text-sky-800"
+              className="group flex items-center gap-2 text-sm font-medium text-zinc-700 transition-colors duration-300 hover:text-amber-800"
             >
               <Icon
-                className="h-5 w-5 shrink-0 text-sky-600 transition-transform duration-300 group-hover:scale-110"
+                className="h-5 w-5 shrink-0 text-amber-600 transition-transform duration-300 group-hover:scale-110"
                 strokeWidth={1.75}
                 aria-hidden
               />

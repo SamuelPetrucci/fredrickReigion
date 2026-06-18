@@ -1,12 +1,12 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { TextGradient } from "./TextGradient";
+import { StatValue } from "./StatValue";
 
 export function StatsSection({ config }: { config: SiteConfig }) {
   const { stats } = config;
   return (
     <section className="bg-[#0b111d] px-4 py-14 transition-colors duration-500 sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200/80 transition-opacity duration-500">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80 transition-opacity duration-500">
           {stats.eyebrow}
         </p>
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-8">
@@ -16,15 +16,9 @@ export function StatsSection({ config }: { config: SiteConfig }) {
               className="text-center transition-transform duration-500 ease-out hover:translate-y-[-2px]"
             >
               <div className="text-3xl font-extrabold tabular-nums sm:text-4xl">
-                {s.gradient ? (
-                  <TextGradient as="span" className="font-extrabold">
-                    {s.value}
-                  </TextGradient>
-                ) : (
-                  <span className="text-white">{s.value}</span>
-                )}
+                <StatValue value={s.value} gradient={s.gradient} />
               </div>
-              <div className="mt-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">
+              <div className="mt-2 text-xs font-semibold uppercase tracking-wide text-zinc-400">
                 {s.label}
               </div>
             </div>

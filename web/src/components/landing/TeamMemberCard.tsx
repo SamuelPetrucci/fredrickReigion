@@ -21,7 +21,7 @@ export function TeamMemberCard({
 }: TeamMemberCardProps) {
   return (
     <article
-      className={`flex flex-col rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 ease-out hover:border-sky-200/80 hover:shadow-lg ${
+      className={`flex flex-col rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 ease-out hover:border-amber-200/80 hover:shadow-lg ${
         compact ? "p-4" : featured ? "min-h-[22rem] p-8 sm:min-h-[24rem] sm:p-10" : "p-6 hover:-translate-y-1"
       }`}
     >
@@ -51,14 +51,14 @@ export function TeamMemberCard({
           <p className="text-xs text-zinc-500">{member.tagline}</p>
         </div>
         {!compact && (
-          <span className="text-xs font-semibold uppercase tracking-wide text-sky-700">
+          <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
             {badgeLabel}
           </span>
         )}
       </div>
       {showCta && !compact && !featured && (
         <div className="mt-4">
-          <ScheduleCtaButton href={scheduleUrl} external fullWidth>
+          <ScheduleCtaButton href={scheduleUrl} fullWidth>
             Schedule your interview
           </ScheduleCtaButton>
         </div>

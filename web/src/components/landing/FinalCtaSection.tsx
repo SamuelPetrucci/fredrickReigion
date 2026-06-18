@@ -1,9 +1,11 @@
 import type { SiteConfig } from "@/config/site-config-schema";
+import { getScheduleUrl } from "@/lib/site-config";
 import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function FinalCtaSection({ config }: { config: SiteConfig }) {
-  const { finalCta, cta, nav } = config;
+  const { finalCta, cta } = config;
+  const scheduleUrl = getScheduleUrl(config);
   return (
     <section className="bg-[#0c121e] px-4 py-16 text-center transition-colors duration-500 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-3xl">
@@ -18,7 +20,7 @@ export function FinalCtaSection({ config }: { config: SiteConfig }) {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <ScheduleCtaButton href={nav.interviewHref} size="large">
+          <ScheduleCtaButton href={scheduleUrl} size="large">
             {cta.label}
           </ScheduleCtaButton>
         </div>
