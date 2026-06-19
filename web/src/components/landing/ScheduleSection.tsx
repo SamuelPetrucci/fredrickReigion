@@ -25,10 +25,18 @@ export function ScheduleSection({ config }: { config: SiteConfig }) {
           {schedule.subtitle}
         </p>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col items-center gap-3">
           <ScheduleCtaButton href={scheduleUrl} size="large">
             {cta.label}
           </ScheduleCtaButton>
+          <a
+            href={scheduleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-500 underline-offset-2 transition-colors hover:text-amber-800 hover:underline"
+          >
+            Open Google Calendar appointment page
+          </a>
         </div>
       </div>
     </section>

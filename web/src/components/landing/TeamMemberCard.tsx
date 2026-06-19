@@ -56,9 +56,9 @@ export function TeamMemberCard({
           </span>
         )}
       </div>
-      {showCta && !compact && !featured && (
-        <div className="mt-4">
-          <ScheduleCtaButton href={scheduleUrl} fullWidth>
+      {showCta && !compact && (
+        <div className={featured ? "mt-6" : "mt-4"}>
+          <ScheduleCtaButton href={scheduleUrl} fullWidth={!featured}>
             Schedule your interview
           </ScheduleCtaButton>
         </div>

@@ -59,8 +59,9 @@ export function TeamCarousel({
                   member={member}
                   scheduleUrl={scheduleUrl}
                   badgeLabel={badgeLabel}
-                  featured
-                />
+                featured
+                showCta
+              />
               </div>
             ))}
           </div>

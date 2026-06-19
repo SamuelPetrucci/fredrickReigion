@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 type ScheduleCtaButtonProps = {
@@ -13,7 +12,11 @@ function isExternalHref(href: string) {
   return /^https?:\/\//i.test(href);
 }
 
-const buttonClass = (size: "default" | "large", fullWidth: boolean, className: string) => {
+const buttonClass = (
+  size: "default" | "large",
+  fullWidth: boolean,
+  className: string
+) => {
   const sizeClasses =
     size === "large"
       ? "px-10 py-5 text-base sm:px-12 sm:py-5"
@@ -31,6 +34,9 @@ export function ScheduleCtaButton({
   fullWidth = false,
   className = "",
 }: ScheduleCtaButtonProps) {
+  const trimmed = href?.trim() ?? "";
+  if (!trimmed) return null;
+
   const classes = buttonClass(size, fullWidth, className);
   const content = (
     <>
@@ -45,13 +51,14 @@ export function ScheduleCtaButton({
     </>
   );
 
-  if (isExternalHref(href)) {
+  if (isExternalHref(trimmed)) {
     return (
       <a
-        href={href}
+        href={trimmed}
         target="_blank"
         rel="noopener noreferrer"
         className={classes}
+        aria-label="Schedule your interview on Google Calendar (opens in a new tab)"
       >
         {content}
       </a>
@@ -59,8 +66,8 @@ export function ScheduleCtaButton({
   }
 
   return (
-    <Link href={href} scroll className={classes}>
+    <a href={trimmed} className={classes}>
       {content}
-    </Link>
+    </a>
   );
 }
