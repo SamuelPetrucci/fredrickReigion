@@ -21,13 +21,13 @@ export function TeamMemberCard({
 }: TeamMemberCardProps) {
   return (
     <article
-      className={`flex flex-col rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 ease-out hover:border-amber-200/80 hover:shadow-lg ${
+      className={`landing-card flex flex-col rounded-2xl shadow-sm transition-all duration-300 ease-out hover:border-amber-500/30 hover:shadow-lg hover:shadow-amber-900/10 ${
         compact ? "p-4" : featured ? "min-h-[22rem] p-8 sm:min-h-[24rem] sm:p-10" : "p-6 hover:-translate-y-1"
       }`}
     >
       <GradientStars className={compact ? "mb-2" : featured ? "mb-5" : "mb-4"} />
       <p
-        className={`flex-1 leading-relaxed text-zinc-600 ${
+        className={`flex-1 leading-relaxed text-zinc-300 ${
           compact
             ? "line-clamp-4 text-xs"
             : featured
@@ -38,20 +38,20 @@ export function TeamMemberCard({
         &ldquo;{member.quote}&rdquo;
       </p>
       <div
-        className={`flex flex-wrap items-end justify-between gap-3 border-t border-zinc-100 ${
+        className={`flex flex-wrap items-end justify-between gap-3 border-t border-white/10 ${
           compact ? "mt-3 pt-3" : "mt-6 pt-5"
         }`}
       >
         <div className="min-w-0">
           <p
-            className={`font-bold text-[#0b111d] ${compact ? "text-sm" : featured ? "text-lg" : ""}`}
+            className={`font-bold text-white ${compact ? "text-sm" : featured ? "text-lg" : ""}`}
           >
             {member.name}
           </p>
           <p className="text-xs text-zinc-500">{member.tagline}</p>
         </div>
         {!compact && (
-          <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+          <span className="text-xs font-semibold uppercase tracking-wide text-amber-400">
             {badgeLabel}
           </span>
         )}

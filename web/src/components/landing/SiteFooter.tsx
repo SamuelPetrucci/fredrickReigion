@@ -13,20 +13,20 @@ export function SiteFooter({ config }: { config: SiteConfig }) {
     footer.youtubeUrl.trim() !== "#" || footer.instagramUrl.trim() !== "#";
 
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50/80 px-4 py-5 text-center sm:px-6">
+    <footer className="border-t border-white/10 bg-[#080c14] px-4 py-5 text-center sm:px-6">
       <p className="text-[11px] leading-relaxed text-zinc-500 sm:text-xs">
-        <span className="text-zinc-600">
+        <span className="text-zinc-400">
           {meta.brand} · {meta.company}
         </span>
-        <span className="text-zinc-300"> · </span>
+        <span className="text-zinc-700"> · </span>
         <span>© {year} {rights}</span>
         {hasSocial && (
           <>
-            <span className="text-zinc-300"> · </span>
+            <span className="text-zinc-700"> · </span>
             {footer.youtubeUrl.trim() !== "#" && (
               <Link
                 href={footer.youtubeUrl}
-                className="text-zinc-500 underline-offset-2 hover:text-zinc-800 hover:underline"
+                className="text-zinc-500 underline-offset-2 hover:text-amber-300 hover:underline"
                 rel="noopener noreferrer"
               >
                 YouTube
@@ -34,12 +34,12 @@ export function SiteFooter({ config }: { config: SiteConfig }) {
             )}
             {footer.youtubeUrl.trim() !== "#" &&
               footer.instagramUrl.trim() !== "#" && (
-                <span className="text-zinc-300"> · </span>
+                <span className="text-zinc-700"> · </span>
               )}
             {footer.instagramUrl.trim() !== "#" && (
               <Link
                 href={footer.instagramUrl}
-                className="text-zinc-500 underline-offset-2 hover:text-zinc-800 hover:underline"
+                className="text-zinc-500 underline-offset-2 hover:text-amber-300 hover:underline"
                 rel="noopener noreferrer"
               >
                 Instagram

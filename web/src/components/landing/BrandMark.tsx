@@ -74,7 +74,7 @@ export function BrandMark({
 
   return (
     <div
-      className={`group relative inline-flex max-w-full items-center gap-3.5 rounded-2xl border border-zinc-200/90 bg-white/80 px-3 py-2.5 shadow-sm shadow-amber-900/5 ring-1 ring-amber-100/60 backdrop-blur-sm transition-all duration-300 hover:border-amber-200/80 hover:shadow-md hover:shadow-amber-900/10 sm:gap-4 sm:px-4 sm:py-3 ${
+      className={`group relative inline-flex max-w-full items-center gap-3.5 rounded-2xl border border-white/10 bg-[#1a2235]/90 px-3 py-2.5 shadow-sm shadow-black/20 ring-1 ring-amber-500/10 backdrop-blur-sm transition-all duration-300 hover:border-amber-500/30 hover:shadow-md hover:shadow-amber-900/20 sm:gap-4 sm:px-4 sm:py-3 ${
         compact ? "gap-3 px-3 py-2" : ""
       }`}
     >
@@ -103,7 +103,7 @@ export function BrandMark({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           {(badgeRecruiting || badgeOffice) && (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/80 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-900">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-200">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-500" />
@@ -114,14 +114,14 @@ export function BrandMark({
         </div>
 
         <p
-          className={`truncate font-bold tracking-tight text-[#0b111d] ${
+          className={`truncate font-bold tracking-tight text-white ${
             compact ? "text-sm" : "text-base sm:text-lg"
           }`}
         >
           {meta.brand}
         </p>
         <p
-          className={`truncate font-medium text-zinc-600 ${
+          className={`truncate font-medium text-zinc-400 ${
             compact ? "text-xs" : "text-sm"
           }`}
         >

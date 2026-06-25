@@ -8,18 +8,15 @@ export function TeamSection({ config }: { config: SiteConfig }) {
   const { team } = config;
   const scheduleUrl = getScheduleUrl(config);
   return (
-    <section
-      id="team"
-      className="bg-white px-4 py-16 sm:px-6 sm:py-20"
-    >
+    <section id="team" className="landing-section-alt px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-extrabold tracking-tight text-[#0b111d] sm:text-4xl">
+        <h2 className="text-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
           {team.titleBefore}
           <TextGradient as="span" className="font-extrabold">
             {team.titleGradient}
           </TextGradient>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-zinc-600">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-zinc-400">
           {team.subtitle}
         </p>
 

@@ -73,7 +73,7 @@ export function TeamCarousel({
           <button
             type="button"
             onClick={() => goTo(activeIndex - 1)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition-all hover:border-amber-200 hover:bg-amber-50 hover:text-amber-900"
+            className="flex h-11 w-11 items-center justify-center rounded-full landing-nav-btn shadow-sm transition-all"
             aria-label="Previous team member"
           >
             <ChevronLeft className="h-5 w-5" aria-hidden />
@@ -95,7 +95,7 @@ export function TeamCarousel({
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   index === activeIndex
                     ? "w-8 bg-gradient-to-r from-[#F5E27A] to-[#9A7B2F]"
-                    : "w-2.5 bg-zinc-300 hover:bg-zinc-400"
+                    : "w-2.5 bg-zinc-600 hover:bg-zinc-500"
                 }`}
               />
             ))}
@@ -104,7 +104,7 @@ export function TeamCarousel({
           <button
             type="button"
             onClick={() => goTo(activeIndex + 1)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition-all hover:border-amber-200 hover:bg-amber-50 hover:text-amber-900"
+            className="flex h-11 w-11 items-center justify-center rounded-full landing-nav-btn shadow-sm transition-all"
             aria-label="Next team member"
           >
             <ChevronRight className="h-5 w-5" aria-hidden />

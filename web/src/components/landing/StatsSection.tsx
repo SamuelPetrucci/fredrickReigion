@@ -4,7 +4,7 @@ import { StatValue } from "./StatValue";
 export function StatsSection({ config }: { config: SiteConfig }) {
   const { stats } = config;
   return (
-    <section className="bg-[#0b111d] px-4 py-14 transition-colors duration-500 sm:px-6">
+    <section className="bg-surface-raised px-4 py-14 transition-colors duration-500 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80 transition-opacity duration-500">
           {stats.eyebrow}

@@ -71,7 +71,7 @@ export function PhotoCarousel({ images, embedded = false }: PhotoCarouselProps) 
           <button
             type="button"
             onClick={() => goTo(activeIndex - 1)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition-all hover:border-amber-200 hover:bg-amber-50 hover:text-amber-900"
+            className="landing-nav-btn flex h-11 w-11 items-center justify-center rounded-full shadow-sm transition-all"
             aria-label="Previous photo"
           >
             <ChevronLeft className="h-5 w-5" aria-hidden />
@@ -93,7 +93,7 @@ export function PhotoCarousel({ images, embedded = false }: PhotoCarouselProps) 
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   index === activeIndex
                     ? "w-8 bg-gradient-to-r from-[#FFE566] to-[#8B6914]"
-                    : "w-2.5 bg-amber-200 hover:bg-amber-300"
+                    : "w-2.5 bg-zinc-600 hover:bg-zinc-500"
                 }`}
               />
             ))}
@@ -102,18 +102,12 @@ export function PhotoCarousel({ images, embedded = false }: PhotoCarouselProps) 
           <button
             type="button"
             onClick={() => goTo(activeIndex + 1)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition-all hover:border-amber-200 hover:bg-amber-50 hover:text-amber-900"
+            className="landing-nav-btn flex h-11 w-11 items-center justify-center rounded-full shadow-sm transition-all"
             aria-label="Next photo"
           >
             <ChevronRight className="h-5 w-5" aria-hidden />
           </button>
         </div>
-      )}
-
-      {!embedded && images.length > 1 && (
-        <p className="mt-2 text-center text-xs text-zinc-500">
-          {activeIndex + 1} / {images.length}
-        </p>
       )}
     </div>
   );

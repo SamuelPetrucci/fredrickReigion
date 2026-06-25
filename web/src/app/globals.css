@@ -1,20 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0b111d;
-  --navy: #0b111d;
+  --background: #0b111d;
+  --foreground: #f4f4f5;
+  --surface: #0f1623;
+  --surface-raised: #151d2e;
+  --surface-card: #1a2235;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(212, 175, 55, 0.22);
   --gold-light: #ffe566;
   --gold: #d4af37;
   --gold-mid: #c9a227;
   --gold-dark: #7a5c18;
-  --gradient-gold: linear-gradient(120deg, #ffe566 0%, #e8c547 35%, #d4af37 65%, #9a7b2f 100%);
-  --gradient-gold-button: linear-gradient(135deg, #ffe566 0%, #e8c547 38%, #d4af37 100%);
+  --gradient-gold: linear-gradient(
+    120deg,
+    #ffe566 0%,
+    #e8c547 35%,
+    #d4af37 65%,
+    #9a7b2f 100%
+  );
+  --gradient-gold-button: linear-gradient(
+    135deg,
+    #ffe566 0%,
+    #e8c547 38%,
+    #d4af37 100%
+  );
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-card: var(--surface-card);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -28,7 +46,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 1px 0 rgba(154, 123, 47, 0.15));
+  filter: drop-shadow(0 1px 0 rgba(154, 123, 47, 0.25));
 }
 
 .bg-gradient-gold {
@@ -38,6 +56,49 @@ body {
 .bg-gradient-gold-button {
   background: var(--gradient-gold-button);
   color: #0b111d;
+}
+
+.landing-section {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.landing-section-alt {
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.landing-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.landing-heading {
+  color: #fafafa;
+}
+
+.landing-body {
+  color: #a1a1aa;
+}
+
+.landing-muted {
+  color: #71717a;
+}
+
+.landing-divider {
+  border-color: var(--border-subtle);
+}
+
+.landing-nav-btn {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  color: #e4e4e7;
+}
+
+.landing-nav-btn:hover {
+  border-color: var(--border-gold);
+  background: var(--surface-raised);
+  color: #fde68a;
 }
 
 @media (prefers-reduced-motion: reduce) {

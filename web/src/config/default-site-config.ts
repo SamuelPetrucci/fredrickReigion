@@ -41,14 +41,9 @@ export const defaultSiteConfig: SiteConfig = {
   },
   gallery: {
     images: [
-      "/assets/DSC09828.jpg",
       "/assets/DSC09833.jpg",
       "/assets/DSC09840.jpg",
       "/assets/DSC09846.jpg",
-      "/assets/DSC09848.jpg",
-      "/assets/DSC09851.jpg",
-      "/assets/DSC09855.jpg",
-      "/assets/DSC09860.jpg",
       "/assets/DSC09862.jpg",
       "/assets/DSC09874.jpg",
     ],
@@ -125,12 +120,6 @@ export const defaultSiteConfig: SiteConfig = {
       "They came from restaurants, bartending, and desk jobs — and built careers with freedom, residual income, and uncapped earnings.",
     cardBadgeLabel: "Producer",
     members: [
-      {
-        name: "Jerickson Fedrick",
-        tagline: "Office Head · Highest converter 2025",
-        quote:
-          "Jerickson Fedrick leads the Fort Lauderdale office as Office Head and was the highest converter in 2025 — building a team with four 7-figure producers and 15 First 90 Champions.",
-      },
       {
         name: "Jason Macaroni",
         tagline: "Former server & desk job · $20/hr",
