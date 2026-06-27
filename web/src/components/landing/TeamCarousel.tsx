@@ -8,15 +8,10 @@ import { TeamMemberCard } from "./TeamMemberCard";
 
 type TeamCarouselProps = {
   members: TeamMember[];
-  scheduleUrl: string;
   badgeLabel: string;
 };
 
-export function TeamCarousel({
-  members,
-  scheduleUrl,
-  badgeLabel,
-}: TeamCarouselProps) {
+export function TeamCarousel({ members, badgeLabel }: TeamCarouselProps) {
   const { activeIndex, goTo, pauseAutoAdvance, trackStyle, swipeHandlers } =
     useCarouselSwipe({ length: members.length, autoAdvanceMs: 8000 });
 
@@ -57,11 +52,9 @@ export function TeamCarousel({
               >
                 <TeamMemberCard
                   member={member}
-                  scheduleUrl={scheduleUrl}
                   badgeLabel={badgeLabel}
-                featured
-                showCta
-              />
+                  featured
+                />
               </div>
             ))}
           </div>

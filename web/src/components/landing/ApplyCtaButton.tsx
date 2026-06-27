@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type ScheduleCtaButtonProps = {
+type ApplyCtaButtonProps = {
   href: string;
   children: ReactNode;
   size?: "default" | "large";
@@ -27,13 +27,13 @@ const buttonClass = (
   } ${className}`;
 };
 
-export function ScheduleCtaButton({
+export function ApplyCtaButton({
   href,
   children,
   size = "default",
   fullWidth = false,
   className = "",
-}: ScheduleCtaButtonProps) {
+}: ApplyCtaButtonProps) {
   const trimmed = href?.trim() ?? "";
   if (!trimmed) return null;
 
@@ -58,7 +58,7 @@ export function ScheduleCtaButton({
         target="_blank"
         rel="noopener noreferrer"
         className={classes}
-        aria-label="Schedule your interview on Google Calendar (opens in a new tab)"
+        aria-label="Apply — opens application form in a new tab"
       >
         {content}
       </a>
@@ -66,7 +66,7 @@ export function ScheduleCtaButton({
   }
 
   return (
-    <a href={trimmed} className={classes}>
+    <a href={trimmed} className={classes} aria-label="Apply">
       {content}
     </a>
   );

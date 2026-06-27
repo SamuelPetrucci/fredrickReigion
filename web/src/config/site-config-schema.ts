@@ -16,15 +16,15 @@ export type SiteConfig = {
     division: string;
   };
   nav: {
-    interviewLabel: string;
+    applyLabel: string;
     aboutLabel: string;
-    interviewHref: string;
+    applyHref: string;
     aboutAnchorId: string;
-    interviewSectionId: string;
+    applySectionId: string;
   };
   cta: { label: string };
-  schedule: {
-    /** Google Calendar appointment booking URL */
+  apply: {
+    /** Google Forms application URL */
     url: string;
     eyebrow: string;
     title: string;

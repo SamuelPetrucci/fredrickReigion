@@ -1,6 +1,7 @@
 import type { SiteConfig } from "./site-config-schema";
 
-const SCHEDULE_URL = "https://calendar.app.google/2VmyRRuvzv5a1oM46";
+const APPLY_URL =
+  "https://docs.google.com/forms/d/1uuCSJOz9Yjxx6oYqxD8pEyQsh6BJVdaVDxWqnZEROUo/viewform";
 
 export const defaultSiteConfig: SiteConfig = {
   version: 1,
@@ -10,21 +11,21 @@ export const defaultSiteConfig: SiteConfig = {
     division: "Health and life insurance — Fort Lauderdale office",
   },
   nav: {
-    interviewLabel: "Schedule",
+    applyLabel: "Apply",
     aboutLabel: "About",
-    interviewHref: SCHEDULE_URL,
+    applyHref: APPLY_URL,
     aboutAnchorId: "about",
-    interviewSectionId: "schedule",
+    applySectionId: "apply",
   },
   cta: {
-    label: "SCHEDULE YOUR INTERVIEW",
+    label: "Apply",
   },
-  schedule: {
-    url: SCHEDULE_URL,
-    eyebrow: "Pick a time",
-    title: "Schedule your interview",
+  apply: {
+    url: APPLY_URL,
+    eyebrow: "Your last career",
+    title: "This is an opportunity, not a favor",
     subtitle:
-      "Choose a slot that works for you. No pressure — just a conversation with the Fort Lauderdale team.",
+      "Complete the application below. It takes a few minutes — leadership reviews every submission.",
   },
   hero: {
     badgeRecruiting: "Recruiting",
@@ -106,7 +107,7 @@ export const defaultSiteConfig: SiteConfig = {
     headlineBefore: "This is not just a job. ",
     headlineGradient: "It is a vehicle for your goals.",
     paragraph1:
-      "MedaHealth and the Fedrick Region team focus on clear expectations, licensing support, and a culture where producers help each other win. If you want a structured path in Fort Lauderdale — not hype — start by scheduling a conversation with the team.",
+      "MedaHealth and the Fedrick Region team focus on clear expectations, licensing support, and a culture where producers help each other win. If you want a structured path in Fort Lauderdale — not hype — start by filling out the application.",
     paragraph2:
       "Bring your work ethic. We bring training, leadership, and a roadmap so you can evaluate fit with full transparency.",
     quote:
@@ -156,7 +157,7 @@ export const defaultSiteConfig: SiteConfig = {
     titleBefore: "Frequently asked ",
     titleGradient: "questions",
     subtitle:
-      "Straight answers you can verify with leadership when you schedule your interview.",
+      "Straight answers you can verify with leadership after you apply.",
     items: [
       {
         question: "Do I need sales experience?",
@@ -166,7 +167,7 @@ export const defaultSiteConfig: SiteConfig = {
       {
         question: "Is this commission only?",
         answer:
-          "Compensation is tied to production in line with industry practice. Exact structure varies by role and licensing; we cover how pay works transparently when you interview.",
+          "Compensation is tied to production in line with industry practice. Exact structure varies by role and licensing; we cover how pay works transparently during the interview process.",
       },
       {
         question: "What are residuals?",
@@ -187,11 +188,10 @@ export const defaultSiteConfig: SiteConfig = {
   },
   finalCta: {
     headlineBefore: "Your future self will thank you for ",
-    headlineGradient: "scheduling your interview.",
+    headlineGradient: "taking the first step.",
     subhead:
-      "The worst-case scenario? You spend an hour and decide it is not a fit. The best-case scenario? You find a team and platform that match your goals.",
-    disclaimer:
-      "Free to attend. No obligation. Pick a time that works for you.",
+      "The worst-case scenario? You spend a few minutes and decide it is not a fit. The best-case scenario? You find a team and platform that match your goals.",
+    disclaimer: "Free to apply. No obligation.",
   },
   footer: {
     logoInitials: "FR",

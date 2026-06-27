@@ -1,7 +1,7 @@
 import type { SiteConfig } from "@/config/site-config-schema";
+import { ApplySection } from "./ApplySection";
 import { FaqSection } from "./FaqSection";
 import { FinalCtaSection } from "./FinalCtaSection";
-import { ScheduleSection } from "./ScheduleSection";
 import { HeroSection } from "./HeroSection";
 import { Reveal } from "./Reveal";
 import { SiteFooter } from "./SiteFooter";
@@ -17,6 +17,9 @@ export function LandingPage({ config }: { config: SiteConfig }) {
       <main>
         <Reveal>
           <HeroSection config={config} />
+        </Reveal>
+        <Reveal delayMs={20}>
+          <ApplySection config={config} />
         </Reveal>
         <Reveal delayMs={40}>
           <TeamSection config={config} />
@@ -37,9 +40,6 @@ export function LandingPage({ config }: { config: SiteConfig }) {
           <FaqSection config={config} />
         </Reveal>
         <Reveal delayMs={180}>
-          <ScheduleSection config={config} />
-        </Reveal>
-        <Reveal delayMs={200}>
           <FinalCtaSection config={config} />
         </Reveal>
         <SiteFooter config={config} />

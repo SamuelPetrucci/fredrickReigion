@@ -1,12 +1,9 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getScheduleUrl } from "@/lib/site-config";
 import { getLucideIcon } from "@/lib/lucide-map";
-import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function WhySection({ config }: { config: SiteConfig }) {
-  const { why, cta } = config;
-  const scheduleUrl = getScheduleUrl(config);
+  const { why } = config;
 
   return (
     <section className="landing-section px-4 py-16 sm:px-6 sm:py-20">
@@ -43,12 +40,6 @@ export function WhySection({ config }: { config: SiteConfig }) {
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-14 flex justify-center">
-          <ScheduleCtaButton href={scheduleUrl} size="large">
-            {cta.label}
-          </ScheduleCtaButton>
         </div>
       </div>
     </section>

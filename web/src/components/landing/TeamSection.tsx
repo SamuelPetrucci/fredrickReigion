@@ -1,12 +1,13 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getScheduleUrl } from "@/lib/site-config";
-import { ScheduleCtaButton } from "./ScheduleCtaButton";
+import { getApplyUrl } from "@/lib/site-config";
+import { ApplyCtaButton } from "./ApplyCtaButton";
 import { TeamCarousel } from "./TeamCarousel";
 import { TextGradient } from "./TextGradient";
 
 export function TeamSection({ config }: { config: SiteConfig }) {
-  const { team } = config;
-  const scheduleUrl = getScheduleUrl(config);
+  const { team, cta } = config;
+  const applyUrl = getApplyUrl(config);
+
   return (
     <section id="team" className="landing-section-alt px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
@@ -23,15 +24,14 @@ export function TeamSection({ config }: { config: SiteConfig }) {
         <div className="mt-14">
           <TeamCarousel
             members={team.members}
-            scheduleUrl={scheduleUrl}
             badgeLabel={team.cardBadgeLabel}
           />
         </div>
 
         <div className="mt-10 flex justify-center">
-          <ScheduleCtaButton href={scheduleUrl} size="large">
-            {config.cta.label}
-          </ScheduleCtaButton>
+          <ApplyCtaButton href={applyUrl} size="large">
+            {cta.label}
+          </ApplyCtaButton>
         </div>
       </div>
     </section>

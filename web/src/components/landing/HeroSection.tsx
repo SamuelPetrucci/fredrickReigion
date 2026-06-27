@@ -1,13 +1,13 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getScheduleUrl } from "@/lib/site-config";
+import { getApplyUrl } from "@/lib/site-config";
+import { ApplyCtaButton } from "./ApplyCtaButton";
 import { BrandMark } from "./BrandMark";
 import { PhotoCarousel } from "./PhotoCarousel";
-import { ScheduleCtaButton } from "./ScheduleCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function HeroSection({ config }: { config: SiteConfig }) {
   const { hero, meta, cta, nav, gallery } = config;
-  const scheduleUrl = getScheduleUrl(config);
+  const applyUrl = getApplyUrl(config);
   const headlineAfter = hero.headlineAfter
     .replaceAll("__BRAND__", meta.brand)
     .replaceAll("__COMPANY__", meta.company);
@@ -53,9 +53,9 @@ export function HeroSection({ config }: { config: SiteConfig }) {
         )}
 
         <div className="mt-9">
-          <ScheduleCtaButton href={scheduleUrl} size="large" fullWidth>
+          <ApplyCtaButton href={applyUrl} size="large" fullWidth>
             {cta.label}
-          </ScheduleCtaButton>
+          </ApplyCtaButton>
         </div>
 
         <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-white/10 pt-8">

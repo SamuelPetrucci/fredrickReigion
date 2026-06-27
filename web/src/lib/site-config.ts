@@ -1,36 +1,34 @@
 import { defaultSiteConfig } from "@/config/default-site-config";
 import type { SiteConfig } from "@/config/site-config-schema";
 
-const DEFAULT_SCHEDULE_URL =
-  "https://calendar.app.google/2VmyRRuvzv5a1oM46";
+const DEFAULT_APPLY_URL =
+  "https://docs.google.com/forms/d/1uuCSJOz9Yjxx6oYqxD8pEyQsh6BJVdaVDxWqnZEROUo/viewform";
 
-function normalizeScheduleUrl(url: string | undefined): string {
+function normalizeApplyUrl(url: string | undefined): string {
   const trimmed = url?.trim() ?? "";
-  if (!trimmed || trimmed === "#" || trimmed === "#schedule") {
-    return DEFAULT_SCHEDULE_URL;
+  if (!trimmed || trimmed === "#" || trimmed === "#apply") {
+    return DEFAULT_APPLY_URL;
   }
   return trimmed;
 }
 
-/** Keeps `nav.interviewHref` in sync with `schedule.url` for every CTA. */
+/** Keeps `nav.applyHref` in sync with `apply.url` for every CTA. */
 export function getSiteConfig(): SiteConfig {
-  const scheduleUrl = normalizeScheduleUrl(defaultSiteConfig.schedule.url);
+  const applyUrl = normalizeApplyUrl(defaultSiteConfig.apply.url);
   return {
     ...defaultSiteConfig,
-    schedule: {
-      ...defaultSiteConfig.schedule,
-      url: scheduleUrl,
+    apply: {
+      ...defaultSiteConfig.apply,
+      url: applyUrl,
     },
     nav: {
       ...defaultSiteConfig.nav,
-      interviewHref: scheduleUrl,
+      applyHref: applyUrl,
     },
   };
 }
 
-/** Google Calendar booking URL — use for every schedule / appointment CTA */
-export function getScheduleUrl(config: SiteConfig): string {
-  return normalizeScheduleUrl(
-    config.schedule.url?.trim() || config.nav.interviewHref
-  );
+/** Google Forms application URL */
+export function getApplyUrl(config: SiteConfig): string {
+  return normalizeApplyUrl(config.apply.url?.trim() || config.nav.applyHref);
 }

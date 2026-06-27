@@ -1,23 +1,18 @@
 import type { TeamMember } from "@/config/site-config-schema";
 import { GradientStars } from "./GradientStars";
-import { ScheduleCtaButton } from "./ScheduleCtaButton";
 
 type TeamMemberCardProps = {
   member: TeamMember;
-  scheduleUrl: string;
   badgeLabel?: string;
   compact?: boolean;
   featured?: boolean;
-  showCta?: boolean;
 };
 
 export function TeamMemberCard({
   member,
-  scheduleUrl,
-  badgeLabel = "Schedule",
+  badgeLabel = "Producer",
   compact = false,
   featured = false,
-  showCta = true,
 }: TeamMemberCardProps) {
   return (
     <article
@@ -56,13 +51,6 @@ export function TeamMemberCard({
           </span>
         )}
       </div>
-      {showCta && !compact && (
-        <div className={featured ? "mt-6" : "mt-4"}>
-          <ScheduleCtaButton href={scheduleUrl} fullWidth={!featured}>
-            Schedule your interview
-          </ScheduleCtaButton>
-        </div>
-      )}
     </article>
   );
 }
