@@ -199,5 +199,8 @@ export const defaultSiteConfig: SiteConfig = {
     youtubeUrl: "#",
     instagramUrl: "#",
     copyright: "All rights reserved.",
+    developerLabel: "Developed by",
+    developerUrl: "https://www.aitransformationllc.com/",
+    developerName: "aitransformationllc.com",
   },
 };

@@ -90,5 +90,8 @@ export type SiteConfig = {
     youtubeUrl: string;
     instagramUrl: string;
     copyright: string;
+    developerLabel?: string;
+    developerUrl?: string;
+    developerName?: string;
   };
 };

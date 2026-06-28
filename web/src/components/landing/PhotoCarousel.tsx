@@ -33,7 +33,7 @@ export function PhotoCarousel({ images, embedded = false }: PhotoCarouselProps) 
         aria-live="polite"
       >
         <div
-          className="relative aspect-[4/3] cursor-grab touch-pan-x active:cursor-grabbing sm:aspect-[16/10]"
+          className="relative aspect-[4/3] cursor-grab touch-pan-y active:cursor-grabbing sm:aspect-[16/10]"
           {...swipeHandlers}
         >
           <div className="flex h-full" style={trackStyle}>

@@ -11,6 +11,8 @@ export function SiteFooter({ config }: { config: SiteConfig }) {
 
   const hasSocial =
     footer.youtubeUrl.trim() !== "#" || footer.instagramUrl.trim() !== "#";
+  const developerUrl = footer.developerUrl?.trim();
+  const developerName = footer.developerName?.trim() || developerUrl;
 
   return (
     <footer className="border-t border-white/10 bg-[#080c14] px-4 py-5 text-center sm:px-6">
@@ -48,6 +50,19 @@ export function SiteFooter({ config }: { config: SiteConfig }) {
           </>
         )}
       </p>
+      {developerUrl && developerName && (
+        <p className="mt-2 text-[10px] text-zinc-600 sm:text-[11px]">
+          {footer.developerLabel ?? "Developed by"}{" "}
+          <a
+            href={developerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-500 underline-offset-2 transition-colors hover:text-amber-300/80 hover:underline"
+          >
+            {developerName}
+          </a>
+        </p>
+      )}
     </footer>
   );
 }

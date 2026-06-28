@@ -3,11 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const SWIPE_THRESHOLD_PX = 40;
+const AXIS_LOCK_THRESHOLD_PX = 10;
 
 type UseCarouselSwipeOptions = {
   length: number;
   autoAdvanceMs?: number;
 };
+
+type GestureAxis = "none" | "horizontal" | "vertical";
 
 export function useCarouselSwipe({
   length,
@@ -23,6 +26,7 @@ export function useCarouselSwipe({
   const pointerId = useRef<number | null>(null);
   const dragOffsetRef = useRef(0);
   const activeIndexRef = useRef(0);
+  const gestureAxis = useRef<GestureAxis>("none");
 
   useEffect(() => {
     activeIndexRef.current = activeIndex;
@@ -47,6 +51,14 @@ export function useCarouselSwipe({
     [length, pauseAutoAdvance]
   );
 
+  const resetGesture = useCallback(() => {
+    gestureAxis.current = "none";
+    pointerId.current = null;
+    dragOffsetRef.current = 0;
+    setDragOffset(0);
+    setIsDragging(false);
+  }, []);
+
   useEffect(() => {
     if (!autoAdvanceMs || length <= 1) return;
 
@@ -69,28 +81,42 @@ export function useCarouselSwipe({
     pointerId.current = e.pointerId;
     pointerStartX.current = e.clientX;
     pointerStartY.current = e.clientY;
-    setIsDragging(true);
+    gestureAxis.current = "none";
+    dragOffsetRef.current = 0;
+    setDragOffset(0);
+    setIsDragging(false);
     pauseAutoAdvance();
-    e.currentTarget.setPointerCapture(e.pointerId);
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDragging || pointerId.current !== e.pointerId) return;
+    if (pointerId.current !== e.pointerId) return;
 
     const deltaX = e.clientX - pointerStartX.current;
     const deltaY = e.clientY - pointerStartY.current;
 
-    if (
-      Math.abs(deltaY) > Math.abs(deltaX) * 1.2 &&
-      Math.abs(deltaY) > SWIPE_THRESHOLD_PX
-    ) {
-      setIsDragging(false);
-      setDragOffset(0);
-      e.currentTarget.releasePointerCapture(e.pointerId);
-      return;
+    if (gestureAxis.current === "none") {
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+      if (
+        absX < AXIS_LOCK_THRESHOLD_PX &&
+        absY < AXIS_LOCK_THRESHOLD_PX
+      ) {
+        return;
+      }
+
+      if (absY > absX) {
+        gestureAxis.current = "vertical";
+        return;
+      }
+
+      gestureAxis.current = "horizontal";
+      setIsDragging(true);
+      e.currentTarget.setPointerCapture(e.pointerId);
     }
 
-    if (Math.abs(deltaX) > 8) e.preventDefault();
+    if (gestureAxis.current === "vertical") return;
+
+    e.preventDefault();
     dragOffsetRef.current = deltaX;
     setDragOffset(deltaX);
   };
@@ -98,19 +124,16 @@ export function useCarouselSwipe({
   const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     if (pointerId.current !== e.pointerId) return;
 
-    const offset = dragOffsetRef.current;
-    if (offset < -SWIPE_THRESHOLD_PX) goTo(activeIndexRef.current + 1);
-    else if (offset > SWIPE_THRESHOLD_PX) goTo(activeIndexRef.current - 1);
-    else {
-      dragOffsetRef.current = 0;
-      setDragOffset(0);
+    if (gestureAxis.current === "horizontal") {
+      const offset = dragOffsetRef.current;
+      if (offset < -SWIPE_THRESHOLD_PX) goTo(activeIndexRef.current + 1);
+      else if (offset > SWIPE_THRESHOLD_PX) goTo(activeIndexRef.current - 1);
     }
 
-    setIsDragging(false);
-    pointerId.current = null;
     if (e.currentTarget.hasPointerCapture(e.pointerId)) {
       e.currentTarget.releasePointerCapture(e.pointerId);
     }
+    resetGesture();
   };
 
   const trackStyle: React.CSSProperties = {

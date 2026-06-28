@@ -38,7 +38,7 @@ export function TeamCarousel({ members, badgeLabel }: TeamCarouselProps) {
         aria-live="polite"
       >
         <div
-          className="cursor-grab touch-pan-x active:cursor-grabbing"
+          className="cursor-grab touch-pan-y active:cursor-grabbing"
           {...swipeHandlers}
         >
           <div className="flex" style={trackStyle}>
