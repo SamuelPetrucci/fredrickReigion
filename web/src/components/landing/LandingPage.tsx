@@ -18,9 +18,6 @@ export function LandingPage({ config }: { config: SiteConfig }) {
         <Reveal>
           <HeroSection config={config} />
         </Reveal>
-        <Reveal delayMs={20}>
-          <ApplySection config={config} />
-        </Reveal>
         <Reveal delayMs={40}>
           <TeamSection config={config} />
         </Reveal>
@@ -40,6 +37,9 @@ export function LandingPage({ config }: { config: SiteConfig }) {
           <FaqSection config={config} />
         </Reveal>
         <Reveal delayMs={180}>
+          <ApplySection config={config} />
+        </Reveal>
+        <Reveal delayMs={200}>
           <FinalCtaSection config={config} />
         </Reveal>
         <SiteFooter config={config} />

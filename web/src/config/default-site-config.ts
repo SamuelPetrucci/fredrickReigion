@@ -1,7 +1,6 @@
 import type { SiteConfig } from "./site-config-schema";
 
-const APPLY_URL =
-  "https://docs.google.com/forms/d/1uuCSJOz9Yjxx6oYqxD8pEyQsh6BJVdaVDxWqnZEROUo/viewform";
+const APPLY_SECTION_ID = "apply";
 
 export const defaultSiteConfig: SiteConfig = {
   version: 1,
@@ -13,19 +12,19 @@ export const defaultSiteConfig: SiteConfig = {
   nav: {
     applyLabel: "Apply",
     aboutLabel: "About",
-    applyHref: APPLY_URL,
+    applyHref: `#${APPLY_SECTION_ID}`,
     aboutAnchorId: "about",
-    applySectionId: "apply",
+    applySectionId: APPLY_SECTION_ID,
   },
   cta: {
     label: "Apply",
   },
   apply: {
-    url: APPLY_URL,
+    url: `#${APPLY_SECTION_ID}`,
     eyebrow: "Your last career",
     title: "This is an opportunity, not a favor",
     subtitle:
-      "Complete the application below. It takes a few minutes — leadership reviews every submission.",
+      "Tap Apply to open the form — takes a few minutes. Leadership reviews every submission.",
   },
   hero: {
     badgeRecruiting: "Recruiting",

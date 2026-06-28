@@ -1,12 +1,10 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getApplyUrl } from "@/lib/site-config";
 import { ApplyCtaButton } from "./ApplyCtaButton";
 import { TeamCarousel } from "./TeamCarousel";
 import { TextGradient } from "./TextGradient";
 
 export function TeamSection({ config }: { config: SiteConfig }) {
   const { team, cta } = config;
-  const applyUrl = getApplyUrl(config);
 
   return (
     <section id="team" className="landing-section-alt px-4 py-16 sm:px-6 sm:py-20">
@@ -29,7 +27,7 @@ export function TeamSection({ config }: { config: SiteConfig }) {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <ApplyCtaButton href={applyUrl} size="large">
+          <ApplyCtaButton size="large">
             {cta.label}
           </ApplyCtaButton>
         </div>

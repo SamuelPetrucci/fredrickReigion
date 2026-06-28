@@ -24,7 +24,7 @@ export type SiteConfig = {
   };
   cta: { label: string };
   apply: {
-    /** Google Forms application URL */
+    /** In-page anchor for Apply CTAs, e.g. `#apply` */
     url: string;
     eyebrow: string;
     title: string;

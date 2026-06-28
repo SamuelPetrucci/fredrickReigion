@@ -1,16 +1,14 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useApplyModal } from "./ApplyModalProvider";
 
 type ApplyCtaButtonProps = {
-  href: string;
   children: ReactNode;
   size?: "default" | "large";
   fullWidth?: boolean;
   className?: string;
 };
-
-function isExternalHref(href: string) {
-  return /^https?:\/\//i.test(href);
-}
 
 const buttonClass = (
   size: "default" | "large",
@@ -28,18 +26,21 @@ const buttonClass = (
 };
 
 export function ApplyCtaButton({
-  href,
   children,
   size = "default",
   fullWidth = false,
   className = "",
 }: ApplyCtaButtonProps) {
-  const trimmed = href?.trim() ?? "";
-  if (!trimmed) return null;
-
+  const { openApplyModal } = useApplyModal();
   const classes = buttonClass(size, fullWidth, className);
-  const content = (
-    <>
+
+  return (
+    <button
+      type="button"
+      onClick={openApplyModal}
+      className={classes}
+      aria-label="Apply — open application form"
+    >
       <span
         className="pointer-events-none absolute inset-0 z-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
         aria-hidden
@@ -48,26 +49,6 @@ export function ApplyCtaButton({
       <span className="relative z-10 text-lg transition-transform duration-300 group-hover:translate-x-0.5">
         →
       </span>
-    </>
-  );
-
-  if (isExternalHref(trimmed)) {
-    return (
-      <a
-        href={trimmed}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes}
-        aria-label="Apply — opens application form in a new tab"
-      >
-        {content}
-      </a>
-    );
-  }
-
-  return (
-    <a href={trimmed} className={classes} aria-label="Apply">
-      {content}
-    </a>
+    </button>
   );
 }

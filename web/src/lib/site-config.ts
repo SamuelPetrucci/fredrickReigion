@@ -1,34 +1,28 @@
 import { defaultSiteConfig } from "@/config/default-site-config";
 import type { SiteConfig } from "@/config/site-config-schema";
 
-const DEFAULT_APPLY_URL =
-  "https://docs.google.com/forms/d/1uuCSJOz9Yjxx6oYqxD8pEyQsh6BJVdaVDxWqnZEROUo/viewform";
-
-function normalizeApplyUrl(url: string | undefined): string {
-  const trimmed = url?.trim() ?? "";
-  if (!trimmed || trimmed === "#" || trimmed === "#apply") {
-    return DEFAULT_APPLY_URL;
-  }
-  return trimmed;
+/** Anchor id for in-page Apply CTAs */
+export function getApplyAnchor(config: SiteConfig): string {
+  return `#${config.nav.applySectionId}`;
 }
 
-/** Keeps `nav.applyHref` in sync with `apply.url` for every CTA. */
+/** Keeps nav.applyHref in sync with the apply section anchor. */
 export function getSiteConfig(): SiteConfig {
-  const applyUrl = normalizeApplyUrl(defaultSiteConfig.apply.url);
+  const applyAnchor = getApplyAnchor(defaultSiteConfig);
   return {
     ...defaultSiteConfig,
-    apply: {
-      ...defaultSiteConfig.apply,
-      url: applyUrl,
-    },
     nav: {
       ...defaultSiteConfig.nav,
-      applyHref: applyUrl,
+      applyHref: applyAnchor,
+    },
+    apply: {
+      ...defaultSiteConfig.apply,
+      url: applyAnchor,
     },
   };
 }
 
-/** Google Forms application URL */
+/** @deprecated Use getApplyAnchor — applications are submitted on-site. */
 export function getApplyUrl(config: SiteConfig): string {
-  return normalizeApplyUrl(config.apply.url?.trim() || config.nav.applyHref);
+  return getApplyAnchor(config);
 }

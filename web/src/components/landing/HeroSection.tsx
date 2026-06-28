@@ -1,5 +1,4 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getApplyUrl } from "@/lib/site-config";
 import { ApplyCtaButton } from "./ApplyCtaButton";
 import { BrandMark } from "./BrandMark";
 import { PhotoCarousel } from "./PhotoCarousel";
@@ -7,7 +6,6 @@ import { TextGradient } from "./TextGradient";
 
 export function HeroSection({ config }: { config: SiteConfig }) {
   const { hero, meta, cta, nav, gallery } = config;
-  const applyUrl = getApplyUrl(config);
   const headlineAfter = hero.headlineAfter
     .replaceAll("__BRAND__", meta.brand)
     .replaceAll("__COMPANY__", meta.company);
@@ -53,7 +51,7 @@ export function HeroSection({ config }: { config: SiteConfig }) {
         )}
 
         <div className="mt-9">
-          <ApplyCtaButton href={applyUrl} size="large" fullWidth>
+          <ApplyCtaButton size="large" fullWidth>
             {cta.label}
           </ApplyCtaButton>
         </div>

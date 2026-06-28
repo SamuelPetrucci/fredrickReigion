@@ -1,15 +1,13 @@
 import type { SiteConfig } from "@/config/site-config-schema";
-import { getApplyUrl } from "@/lib/site-config";
 import { ApplyCtaButton } from "./ApplyCtaButton";
 import { TextGradient } from "./TextGradient";
 
 export function ApplySection({ config }: { config: SiteConfig }) {
   const { apply, cta } = config;
-  const applyUrl = getApplyUrl(config);
 
   return (
     <section
-      className="landing-section-alt border-y border-white/10 px-4 py-16 sm:px-6 sm:py-20"
+      className="landing-section-alt border-y border-white/10 px-4 py-14 sm:px-6 sm:py-16"
       id={config.nav.applySectionId}
     >
       <div className="mx-auto max-w-3xl text-center">
@@ -25,10 +23,8 @@ export function ApplySection({ config }: { config: SiteConfig }) {
           {apply.subtitle}
         </p>
 
-        <div className="mt-10 flex justify-center">
-          <ApplyCtaButton href={applyUrl} size="large">
-            {cta.label}
-          </ApplyCtaButton>
+        <div className="mt-8 flex justify-center">
+          <ApplyCtaButton size="large">{cta.label}</ApplyCtaButton>
         </div>
       </div>
     </section>
