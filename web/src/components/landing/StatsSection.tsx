@@ -9,7 +9,12 @@ export function StatsSection({ config }: { config: SiteConfig }) {
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80 transition-opacity duration-500">
           {stats.eyebrow}
         </p>
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-8">
+        {stats.leadershipLine && (
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-zinc-400 sm:text-base">
+            {stats.leadershipLine}
+          </p>
+        )}
+        <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-8">
           {stats.items.map((s) => (
             <div
               key={s.label}

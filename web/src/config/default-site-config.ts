@@ -34,7 +34,7 @@ export const defaultSiteConfig: SiteConfig = {
     headlineGradient: "six-figure",
     headlineAfter: " income in health & life sales — with __BRAND__.",
     subhead:
-      "Join MedaHealth at the Fort Lauderdale office. Real producers who came from restaurants, desk jobs, and part-time work — now building uncapped income and residual wealth.",
+      "Join MedaHealth at the Fort Lauderdale office — led by Jerickson Fredrick, 2025's highest converter. Real producers who came from restaurants, desk jobs, and part-time work — now building uncapped income and residual wealth.",
     teamCardsEyebrow: "Meet your future team",
     avatarInitials: ["JF", "JM", "CC", "DL", "AW", "TB"],
     socialTitle: "Real stories from real producers",
@@ -51,10 +51,15 @@ export const defaultSiteConfig: SiteConfig = {
   },
   stats: {
     eyebrow: "Real results from real people",
+    leadershipLine:
+      "Fort Lauderdale office led by Jerickson Fredrick — highest converter in 2025.",
     items: [
       { value: "$92,897.89", label: "Highest monthly earner", gradient: true },
       { value: "400+", label: "Active agents", gradient: false },
       { value: "$30,000", label: "Average top earner / mo", gradient: true },
+      { value: "#1", label: "Highest converter · 2025", gradient: true },
+      { value: "4", label: "Seven-figure producers", gradient: false },
+      { value: "16", label: "First 90 Champions", gradient: true },
     ],
   },
   trust: {
@@ -62,7 +67,7 @@ export const defaultSiteConfig: SiteConfig = {
       { icon: "Shield", text: "Compliance-minded onboarding" },
       { icon: "BadgeCheck", text: "Carrier-backed products" },
       { icon: "BookOpen", text: "Structured training path" },
-      { icon: "Users", text: "Team-led coaching" },
+      { icon: "Trophy", text: "Led by 2025's #1 converter" },
     ],
   },
   why: {
@@ -107,12 +112,12 @@ export const defaultSiteConfig: SiteConfig = {
     headlineBefore: "This is not just a job. ",
     headlineGradient: "It is a vehicle for your goals.",
     paragraph1:
-      "MedaHealth and the Fedrick Region team focus on clear expectations, licensing support, and a culture where producers help each other win. If you want a structured path in Fort Lauderdale — not hype — start by filling out the application.",
+      "MedaHealth and the Fedrick Region team focus on clear expectations, licensing support, and a culture where producers help each other win. Office Head Jerickson Fredrick was the highest converter in 2025 — building a team with four seven-figure producers and 16 First 90 Champions.",
     paragraph2:
       "Bring your work ethic. We bring training, leadership, and a roadmap so you can evaluate fit with full transparency.",
     quote:
       "We do not just hand you a script and disappear. We build skill in the room and in the field — together.",
-    quoteAttribution: "Fedrick Region leadership",
+    quoteAttribution: "Jerickson Fredrick, Office Head",
   },
   team: {
     titleBefore: "Don't take our word for it — ",

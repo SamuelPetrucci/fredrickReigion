@@ -48,6 +48,7 @@ export type SiteConfig = {
   };
   stats: {
     eyebrow: string;
+    leadershipLine?: string;
     items: StatItem[];
   };
   trust: { items: [TrustItem, TrustItem, TrustItem, TrustItem] };
